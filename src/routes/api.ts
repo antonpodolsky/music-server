@@ -8,7 +8,7 @@ export default router;
 const MC_HOST = 'http://localhost:52199';
 
 function image(id) {
-  return `${MC_HOST}/MCWS/v1/Browse/Image?Version=2&ID=${id}&FallbackColor=130%2C130%2C130&UseStackedImages=0&Format=png`;
+  return `${MC_HOST}/MCWS/v1/Browse/Image?Version=2&ID=${id}&FallbackColor=130%2C130%2C130&UseStackedImages=1&Format=png`;
 }
 
 function fetch(what: 'Children' | 'Files', id) {
@@ -25,7 +25,7 @@ function send(res, data) {
 
 router.get('/artists', (req, res) => fetch('Children', 1000).then(body => {
   const artists = parser.xml2json(body);
-  
+
   return artists.Response.Item.map(artist => ({
     id: artist['_@ttribute'],
     name: artist.Name,
