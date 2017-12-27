@@ -8,7 +8,7 @@ export default router;
 const MC_HOST = 'http://localhost:52199';
 
 function image(id) {
-  return `${MC_HOST}/MCWS/v1/Browse/Image?Version=2&ID=${id}&FallbackColor=130%2C130%2C130&UseStackedImages=1&Format=png`;
+  return `${MC_HOST}/MCWS/v1/Browse/Image?Version=2&ID=${id}&FallbackColor=130%2C130%2C130&UseStackedImages=1&Format=png&Width=200&Height=200`;
 }
 
 function fetch(what: 'Children' | 'Files', id) {
